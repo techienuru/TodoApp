@@ -3,276 +3,163 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Todo App - Manage your day effectively</title>
+    <style>
+      body {
+        background-color: #004f2d;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .overall-container {
+        margin: 10vh auto;
+        width: 50%;
+        /* width: clamp(50%, 5vh, 50%); */
+        background-color: #0a8754;
+        padding: 20px;
+      }
+      @media all and (width <= 464px) {
+        .overall-container {
+          width: 65%;
+        }
+      }
+      .header {
+        text-align: center;
+        color: white;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-style: italic;
+      }
+      .todo-container {
+        padding: 10px;
+        width: fit-content;
+        margin: 0px auto 0px;
+      }
+      .d-flex {
+        display: flex;
+      }
+      .todo-container input {
+        height: 25px;
+      }
+      .todo-container input:focus {
+        border: 1px solid #004f2d;
+        box-shadow: 0px 0px 5px yellow;
+        outline: none;
+        padding: 5px;
+      }
+      #add-todo,
+      #clear-task {
+        padding: 10px;
+        cursor: pointer;
+        color: white;
+        border: none;
+        outline: none;
+        border-radius: 5%;
+      }
+      #add-todo {
+        background-color: #dd5815;
+      }
+      #clear-task {
+        background-color: rgba(255, 187, 0, 0.795);
+        color: black;
+        margin: auto;
+      }
+      #add-todo:hover,
+      #clear-task:hover {
+        box-shadow: 0px 0px 5px yellow;
+      }
+      .error-message {
+        color: rgb(219, 3, 3);
+      }
+      #todo-list {
+        padding: 10px;
+        margin: 10px auto;
+        width: fit-content;
+      }
+      #todo-list > li {
+        list-style-type: decimal-leading-zero;
+        margin-bottom: 8px;
+      }
+      #todo-list > li > button {
+        margin-left: 20px;
+        background-color: rgba(0, 0, 0, 0.74);
+        border-radius: 15%;
+        border: none;
+        outline: none;
+        padding: 5px;
+      }
+    </style>
   </head>
   <body>
-    <p id="content"></p>
-    <button>PLAY</button>
-
+    <div class="overall-container">
+      <h1 class="header">TODO LIST</h1>
+      <div class="todo-container">
+        <div class="d-flex">
+          <input
+            type="text"
+            name=""
+            id="todo-input"
+            autofocus
+            placeholder="Todo Name"
+          />
+          <button type="button" id="add-todo">ADD</button>
+        </div>
+        <small class="error-message" id="error-message"></small>
+      </div>
+      <ul id="todo-list"></ul>
+      <button type="button" id="clear-task" style="display: none">
+        Clear Tasks
+      </button>
+    </div>
     <script>
-      // const name = "Nurudeen";
-      /*
-              length, at, charAt, toUpperCase, toLowerCase, indexOf, slice, substring, concat, repeat, replace, includes, startsWith, endsWith
-            */
+      document
+        .querySelector("#add-todo")
+        .addEventListener("click", function () {
+          let todoInput = document.querySelector("#todo-input");
+          let taskText = todoInput.value.trim();
+          if (taskText !== "") {
+            AddTodo(taskText);
+            todoInput.value = "";
+            showClearBtn();
+            todoInput.style.border = "initial";
+            document.querySelector("#error-message").innerText = "";
+          } else {
+            todoInput.style.border = "2px solid red";
+            document.querySelector("#error-message").innerText =
+              "Please input a todo name!";
+          }
+        });
 
-      /*
-            let lengthResult = name.length;
-            let charPositionResult = name.at(2);
-            let indexResult = name.charAt("N");
-            let positionResult()
-
-            console.log(lengthResult);
-            console.log(charPositionResult);
-            console.log(indexResult);
-            */
-
-      // CLASS WORK
-      // Q: Capitalize only the first letter
-      /*
-                const name = "chiamaka";
-                let firstLetter = name.charAt(0);
-                let capitalizedLetter = firstLetter.toUpperCase(firstLetter);
-                let result = name.replace("c", capitalizedLetter);
-
-                console.log(result);
-                console.log(name);
-      */
-
-      // ASSIGNMENT
-      // Q: Learn Array Methods
-      // Q: Learn Object Methods
-      /*
-                let bodyElement = document.getElementById("content");
-                bodyElement.innerHTML = "Hi";
-
-                const cars = ["Toyota", "Tesla"];
-                bodyElement.innerHTML = cars;
-                console.log(cars);
-                console.log(cars.values());
-                console.log(cars.join("-"));
-      */
-
-      // Conditional Statements
-      /*
-            const x = 0;
-            if (x > 2) {
-              console.log("x is greater than 2");
-            } else {
-              console.log("x is less than 2");
-            }
-
-            const y = 0;
-            y > 2
-              ? console.log("x is greater than 2")
-              : console.log("x is less than 2");
-      */
-      // Switch Statement
-      /*
-            const colors = "Red";
-            switch (colors) {
-              case "Red":
-                console.log("The color you selected is wrong!");
-                break;
-              case "Yellow":
-                console.log("The color you selected is correct!");
-                break;
-              default:
-                console.log("Oops, you did'nt select the correct color.");
-            }
-
-            const age = 19;
-            switch (age) {
-              case 18:
-                console.log("You just mature!");
-                break;
-              case 19:
-                console.log("You are past maturity!");
-                break;
-              default:
-                console.log("You didn't select a maturity age!");
-                break;
-            }
-      */
-
-      // ASSIGNMENT
-      // Read about while and do while loop
-
-      // LOOP
-      // For Loop
-      // for (let i = 0; i <script 10; i++) {
-      //   console.log(i);
-      // }
-
-      // For....of
-      // const array = ["Nurudeen", "Ibrahim", "Ismail", "Buhari"];
-      // const array = [
-      //   {
-      //     name: "Black T-shirt",
-      //     brand: "Dolce"
-      //   },
-      //   {
-      //     name: "Black Trouser",
-      //     brand: "Dolce"
-      //   }
-      // ];
-      // for (let x in array) {
-      //   console.log(array[x]);
-      // }
-      /*
-      // For....in
-      let arrayNumbers = [1, 2, 3, 4];
-      var sum = 0;
-
-      for (const x of arrayNumbers) {
-        sum += x;
-      }
-      console.log("Sum is equal to:");
-      console.log(sum);
-
-      // HIGH ORDER ARRAY METHOD
-      console.log("HIGH ORDER ARRAY METHOD");
-      // MAP METHOD
-      let array3 = [1, 2, 3, 4];
-      let square = array3.map((x) => x * x);
-      console.log(square);
-
-      let smallCaps = ["nurudeen", "munirudeen", "abdul salam"];
-      let bigCaps = smallCaps.map((value) => {
-        let firstLetter = value.at(0);
-        let capitalizedFirstLetter = firstLetter.toUpperCase();
-        value = value.replace(firstLetter, capitalizedFirstLetter);
-        return value;
-      });
-      console.log("I am a caps changer");
-      console.log(bigCaps);
-
-      // FILTER METHOD
-      let array4 = [1, 2, 3, 4, 5, 6, 7, 8];
-      let evenNumbers = array4.filter((x) => x % 2 === 0);
-      const oddNumbers = array4.filter((x) => x % 2 === 1);
-      console.log(array4);
-      console.log(evenNumbers);
-      console.log(oddNumbers);
-
-      // REDUCE
-      let sumResult = array4.reduce((a, b) => a + b, 0);
-      console.log(sumResult);
-
-      // FUNCTIONS
-      let a = 1;
-      let b = 2;
-
-      function AddTwoNumbers() {
-        console.log("I am a function");
-        return a + b;
-      }
-      console.log(AddTwoNumbers());
-
-      function AddTwoNumbers(a, b, c, d) {
-        return a + b + c + d;
+      function AddTodo(taskText) {
+        const todoList = document.querySelector("#todo-list");
+        const taskItem = document.createElement("li");
+        const taskContent = document.createElement("span");
+        taskContent.textContent = taskText;
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "❌";
+        deleteBtn.classList.add = "delete-btn";
+        deleteBtn.addEventListener("click", function () {
+          todoList.removeChild(taskItem);
+        });
+        taskItem.appendChild(taskContent);
+        taskItem.appendChild(deleteBtn);
+        todoList.appendChild(taskItem);
       }
 
-      console.log(AddTwoNumbers(10, 20, 30, 40));
+      const clearTodoBtn = document.querySelector("#clear-task");
 
-      // OOP
-      // CLASSES
-      class Person {
-        constructor(firstName, lastName, age) {
-          this.firstName = firstName;
-          this.lastName = lastName;
-          this.age = age;
-        }
+      clearTodoBtn.addEventListener("click", function () {
+        const todoList = document.querySelector("#todo-list");
+        todoList.innerHTML = "";
+        showClearBtn();
+      });
 
-        get fullName() {
-          console.log(`${this.firstName} ${this.lastName}`);
-        }
-
-        set changeFirstName(firstName) {
-          this.firstName = firstName;
-        }
-        set changeAge(age) {
-          this.age = age;
+      function showClearBtn() {
+        const todoList = document.querySelector("#todo-list");
+        if (todoList.innerHTML) {
+          clearTodoBtn.style.display = "block";
+        } else {
+          clearTodoBtn.style.display = "none";
         }
       }
-      const person = new Person("Nuru", "Ibrahim", 21);
-      console.log(person);
-      person.fullName;
-      person.changeFirstName = "Nurudeen";
-      console.log(person);
-      person.changeAge = 18;
-      console.log(person);
-
-      // ASSIGNMENT
-      // Read on how to select elements in DOM
-
-      // EVENT LISTENER
-      let button = document.querySelector("button");
-      button.addEventListener("click", () => {
-        button.innerHTML = "Playing...";
-      });
-      button.addEventListener("dblclick", () => {
-        alert("You have double clicked me!");
-      });
-      button.addEventListener("mouseover", () => {
-        button.innerHTML = "You have hovered me!";
-      });
-      button.addEventListener("mouseout", () => {
-        button.innerHTML = "Play";
-      });
-      document.body.addEventListener("keypress", (e) => {
-        console.log(`You have pressed ${e.key} key up!`);
-      });
-
-      // ASSIGNMENT
-      // 1. Write a conditional statement that
-      // 2. Write a function that capitalizes the first letter of a string
-      // function CapitalizeFirstLetter(string) {
-      //   if (string === " ") {
-      //     alert("You cannot enter an empty string!");
-      //     return;
-      //   }
-
-      //   let firstLetter = string.charAt(0);
-      //   let capitalizedLetter = firstLetter.toUpperCase();
-      //   string = string.replace(firstLetter, capitalizedLetter);
-      //   return string;
-      // }
-      // function CapitalizeFirstLetter(string) {
-      //   if (string === " ") {
-      //     alert("You cannot enter an empty string!");
-      //     return;
-      //   }
-
-      //   return string.replace(string.charAt(0), string.charAt(0).toUpperCase());
-      // }
-      function CapitalizeFirstLetter(string) {
-        string = string.trim();
-        if (!string) {
-          alert("Please use the appropriate thing!");
-          return "Invalid input!";
-        }
-
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
-      console.log(CapitalizeFirstLetter(" "));
-      */
-
-      /*
-      document.addEventListener("keypress", (e) => {
-        // console.log(e);
-        console.log(
-          e.key === "f" || e.key === "F"
-            ? `You pressed ${e.key}`
-            : `You did the wrong thing!`
-        );
-        // if (e.key === "f") {
-        //   console.log(e.key);
-        // }
-      });
-      */
-
-      // ASSIGNMENT
-      // Read more on events & DOM manipulation
     </script>
   </body>
 </html>
