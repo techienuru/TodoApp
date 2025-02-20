@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="content"></p>
+    <button>PLAY</button>
+
+    <script>
+      // const name = "Nurudeen";
+      /*
+              length, at, charAt, toUpperCase, toLowerCase, indexOf, slice, substring, concat, repeat, replace, includes, startsWith, endsWith
+            */
+
+      /*
+            let lengthResult = name.length;
+            let charPositionResult = name.at(2);
+            let indexResult = name.charAt("N");
+            let positionResult()
+
+            console.log(lengthResult);
+            console.log(charPositionResult);
+            console.log(indexResult);
+            */
+
+      // CLASS WORK
+      // Q: Capitalize only the first letter
+      /*
+                const name = "chiamaka";
+                let firstLetter = name.charAt(0);
+                let capitalizedLetter = firstLetter.toUpperCase(firstLetter);
+                let result = name.replace("c", capitalizedLetter);
+
+                console.log(result);
+                console.log(name);
+      */
+
+      // ASSIGNMENT
+      // Q: Learn Array Methods
+      // Q: Learn Object Methods
+      /*
+                let bodyElement = document.getElementById("content");
+                bodyElement.innerHTML = "Hi";
+
+                const cars = ["Toyota", "Tesla"];
+                bodyElement.innerHTML = cars;
+                console.log(cars);
+                console.log(cars.values());
+                console.log(cars.join("-"));
+      */
+
+      // Conditional Statements
+      /*
+            const x = 0;
+            if (x > 2) {
+              console.log("x is greater than 2");
+            } else {
+              console.log("x is less than 2");
+            }
+
+            const y = 0;
+            y > 2
+              ? console.log("x is greater than 2")
+              : console.log("x is less than 2");
+      */
+      // Switch Statement
+      /*
+            const colors = "Red";
+            switch (colors) {
+              case "Red":
+                console.log("The color you selected is wrong!");
+                break;
+              case "Yellow":
+                console.log("The color you selected is correct!");
+                break;
+              default:
+                console.log("Oops, you did'nt select the correct color.");
+            }
+
+            const age = 19;
+            switch (age) {
+              case 18:
+                console.log("You just mature!");
+                break;
+              case 19:
+                console.log("You are past maturity!");
+                break;
+              default:
+                console.log("You didn't select a maturity age!");
+                break;
+            }
+      */
+
+      // ASSIGNMENT
+      // Read about while and do while loop
+
+      // LOOP
+      // For Loop
+      // for (let i = 0; i <script 10; i++) {
+      //   console.log(i);
+      // }
+
+      // For....of
+      // const array = ["Nurudeen", "Ibrahim", "Ismail", "Buhari"];
+      // const array = [
+      //   {
+      //     name: "Black T-shirt",
+      //     brand: "Dolce"
+      //   },
+      //   {
+      //     name: "Black Trouser",
+      //     brand: "Dolce"
+      //   }
+      // ];
+      // for (let x in array) {
+      //   console.log(array[x]);
+      // }
+      /*
+      // For....in
+      let arrayNumbers = [1, 2, 3, 4];
+      var sum = 0;
+
+      for (const x of arrayNumbers) {
+        sum += x;
+      }
+      console.log("Sum is equal to:");
+      console.log(sum);
+
+      // HIGH ORDER ARRAY METHOD
+      console.log("HIGH ORDER ARRAY METHOD");
+      // MAP METHOD
+      let array3 = [1, 2, 3, 4];
+      let square = array3.map((x) => x * x);
+      console.log(square);
+
+      let smallCaps = ["nurudeen", "munirudeen", "abdul salam"];
+      let bigCaps = smallCaps.map((value) => {
+        let firstLetter = value.at(0);
+        let capitalizedFirstLetter = firstLetter.toUpperCase();
+        value = value.replace(firstLetter, capitalizedFirstLetter);
+        return value;
+      });
+      console.log("I am a caps changer");
+      console.log(bigCaps);
+
+      // FILTER METHOD
+      let array4 = [1, 2, 3, 4, 5, 6, 7, 8];
+      let evenNumbers = array4.filter((x) => x % 2 === 0);
+      const oddNumbers = array4.filter((x) => x % 2 === 1);
+      console.log(array4);
+      console.log(evenNumbers);
+      console.log(oddNumbers);
+
+      // REDUCE
+      let sumResult = array4.reduce((a, b) => a + b, 0);
+      console.log(sumResult);
+
+      // FUNCTIONS
+      let a = 1;
+      let b = 2;
+
+      function AddTwoNumbers() {
+        console.log("I am a function");
+        return a + b;
+      }
+      console.log(AddTwoNumbers());
+
+      function AddTwoNumbers(a, b, c, d) {
+        return a + b + c + d;
+      }
+
+      console.log(AddTwoNumbers(10, 20, 30, 40));
+
+      // OOP
+      // CLASSES
+      class Person {
+        constructor(firstName, lastName, age) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.age = age;
+        }
+
+        get fullName() {
+          console.log(`${this.firstName} ${this.lastName}`);
+        }
+
+        set changeFirstName(firstName) {
+          this.firstName = firstName;
+        }
+        set changeAge(age) {
+          this.age = age;
+        }
+      }
+      const person = new Person("Nuru", "Ibrahim", 21);
+      console.log(person);
+      person.fullName;
+      person.changeFirstName = "Nurudeen";
+      console.log(person);
+      person.changeAge = 18;
+      console.log(person);
+
+      // ASSIGNMENT
+      // Read on how to select elements in DOM
+
+      // EVENT LISTENER
+      let button = document.querySelector("button");
+      button.addEventListener("click", () => {
+        button.innerHTML = "Playing...";
+      });
+      button.addEventListener("dblclick", () => {
+        alert("You have double clicked me!");
+      });
+      button.addEventListener("mouseover", () => {
+        button.innerHTML = "You have hovered me!";
+      });
+      button.addEventListener("mouseout", () => {
+        button.innerHTML = "Play";
+      });
+      document.body.addEventListener("keypress", (e) => {
+        console.log(`You have pressed ${e.key} key up!`);
+      });
+
+      // ASSIGNMENT
+      // 1. Write a conditional statement that
+      // 2. Write a function that capitalizes the first letter of a string
+      // function CapitalizeFirstLetter(string) {
+      //   if (string === " ") {
+      //     alert("You cannot enter an empty string!");
+      //     return;
+      //   }
+
+      //   let firstLetter = string.charAt(0);
+      //   let capitalizedLetter = firstLetter.toUpperCase();
+      //   string = string.replace(firstLetter, capitalizedLetter);
+      //   return string;
+      // }
+      // function CapitalizeFirstLetter(string) {
+      //   if (string === " ") {
+      //     alert("You cannot enter an empty string!");
+      //     return;
+      //   }
+
+      //   return string.replace(string.charAt(0), string.charAt(0).toUpperCase());
+      // }
+      function CapitalizeFirstLetter(string) {
+        string = string.trim();
+        if (!string) {
+          alert("Please use the appropriate thing!");
+          return "Invalid input!";
+        }
+
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+      console.log(CapitalizeFirstLetter(" "));
+      */
+
+      /*
+      document.addEventListener("keypress", (e) => {
+        // console.log(e);
+        console.log(
+          e.key === "f" || e.key === "F"
+            ? `You pressed ${e.key}`
+            : `You did the wrong thing!`
+        );
+        // if (e.key === "f") {
+        //   console.log(e.key);
+        // }
+      });
+      */
+
+      // ASSIGNMENT
+      // Read more on events & DOM manipulation
+    </script>
+  </body>
+</html>
